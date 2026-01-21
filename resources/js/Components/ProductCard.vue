@@ -32,7 +32,7 @@ const imageUrl = computed(() => {
         <img
           :src="imageUrl"
           :alt="product.title"
-          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          class="mx-auto h-full w-auto object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <!-- Gradient Overlay on Hover -->
         <div
