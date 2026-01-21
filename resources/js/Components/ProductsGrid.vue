@@ -17,13 +17,13 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  title: 'Featured Products',
-  subtitle: 'Explore our curated selection of digital products',
+  title: 'Kiemelt termékeink',
+  subtitle: ' Nézd meg a folyamatosan bővülő kínálatunkat.',
 });
 </script>
 
 <template>
-  <section class="py-16 md:py-24">
+  <section class="py-16 md:pt-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="mb-12 text-center">

@@ -24,7 +24,7 @@ import { Link } from '@inertiajs/vue3';
         <h1
           class="mb-6 text-5xl font-extrabold text-gray-900 md:text-6xl lg:text-7xl"
         >
-          Welcome to
+          Üdvözöl a
           <span
             class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
           >
@@ -32,20 +32,20 @@ import { Link } from '@inertiajs/vue3';
           </span>
         </h1>
         <p class="mx-auto mb-10 max-w-3xl text-xl text-gray-600 md:text-2xl">
-          Discover amazing digital products crafted with passion and innovation
+          Telefonok, tabletek, elektronikai eszközök webáruháza.
         </p>
         <div class="flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             href="/products"
             class="transform rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
           >
-            Browse Products
+            Böngéssz termékeket
           </Link>
           <Link
             href="/about"
             class="transform rounded-lg bg-white px-8 py-4 font-bold text-gray-900 shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
           >
-            Learn More
+            Olvass tovább
           </Link>
         </div>
       </div>

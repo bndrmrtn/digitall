@@ -15,28 +15,28 @@ const currentYear = new Date().getFullYear();
             <AppLogo :size="40" :darkMode="true" />
           </div>
           <p class="max-w-md text-gray-400">
-            Your premier destination for quality digital products and innovative
-            solutions.
+            Telefonok, tabletek és elektronikai eszközök webáruháza. Biztonságos
+            vásárlás, gyors szállítás országszerte.
           </p>
         </div>
 
         <!-- Quick Links -->
         <div>
-          <h3 class="mb-4 font-bold text-white">Quick Links</h3>
+          <h3 class="mb-4 font-bold text-white">Gyors linkek</h3>
           <ul class="space-y-2">
             <li>
               <Link href="/products" class="transition-colors hover:text-white"
-                >Products</Link
+                >Termékek</Link
               >
             </li>
             <li>
               <Link href="/about" class="transition-colors hover:text-white"
-                >About Us</Link
+                >Rólunk</Link
               >
             </li>
             <li>
               <Link href="/contact" class="transition-colors hover:text-white"
-                >Contact</Link
+                >Kapcsolat</Link
               >
             </li>
           </ul>
@@ -44,7 +44,7 @@ const currentYear = new Date().getFullYear();
 
         <!-- Social Links -->
         <div>
-          <h3 class="mb-4 font-bold text-white">Connect</h3>
+          <h3 class="mb-4 font-bold text-white">Kövess minket</h3>
           <div class="flex gap-4">
             <a
               href="#"
@@ -71,7 +71,7 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-        <p>&copy; {{ currentYear }} DigitAll. All rights reserved.</p>
+        <p>&copy; {{ currentYear }} DigitAll. Minden jog fenntartva.</p>
       </div>
     </div>
   </footer>
