@@ -22,10 +22,15 @@ class Product extends Model implements Sortable
         'title',
         'description',
         'position',
+        'price'
     ];
 
     public $slugAttributes = [
         'title',
+    ];
+
+    public $casts = [
+        'price' => 'integer'
     ];
 
     protected $relatedBrowsers = ['products'];
@@ -39,4 +44,9 @@ class Product extends Model implements Sortable
             ],
         ],
     ];
+
+    public function getImageUrl()
+    {
+        return $this->image('image', 'default', ['fm' => 'png']);
+    }
 }

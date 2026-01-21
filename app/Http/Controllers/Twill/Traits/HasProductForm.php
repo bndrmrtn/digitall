@@ -17,6 +17,7 @@ trait HasProductForm {
 
         $form->add(Input::make()->name('title')->label('Felirat')->required());
         $form->add(Wysiwyg::make()->name('description')->label('Leírás')->required());
+        $form->add(Input::make()->name('price')->type('number')->label('Ár')->required());
         $form->add(Medias::make()->name('image')->label('Kép')->max(4)->required());
         $form->add(
             Browser::make()->name('products')->label('Kapcsolódó termékek')
