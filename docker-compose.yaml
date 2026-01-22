@@ -39,7 +39,7 @@ services:
       - laravel
 
   adminer:
-    image: adminer:4
+    image: adminer:latest
     container_name: digitall-adminer
     ports:
       - '8081:8080'

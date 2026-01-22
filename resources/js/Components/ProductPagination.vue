@@ -1,24 +1,17 @@
 <script setup lang="ts">
+import type { PaginatedProducts } from '@/types';
+import { Link } from '@inertiajs/vue3';
 import ProductCard from './ProductCard.vue';
 
-interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    slug: string;
-    image_url?: string;
-}
-
 interface Props {
-    products: Product[];
+    products: PaginatedProducts;
     title?: string;
     subtitle?: string;
 }
 
 withDefaults(defineProps<Props>(), {
-    title: 'Kiemelt termékeink',
-    subtitle: ' Nézd meg a folyamatosan bővülő kínálatunkat.',
+    title: 'Termékeink',
+    subtitle: 'Nézd meg a folyamatosan bővülő kínálatunkat.',
 });
 </script>
 
@@ -37,11 +30,11 @@ withDefaults(defineProps<Props>(), {
 
             <!-- Products Grid -->
             <div
-                v-if="products.length > 0"
+                v-if="products.data.length > 0"
                 class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
                 <ProductCard
-                    v-for="product in products"
+                    v-for="product in products.data"
                     :key="product.id"
                     :product="product"
                 />
@@ -65,9 +58,34 @@ withDefaults(defineProps<Props>(), {
                     </svg>
                 </div>
                 <h3 class="mb-2 text-2xl font-semibold text-gray-600">
-                    No products available
+                    Nincsenek elérhető termékek
                 </h3>
-                <p class="text-gray-500">Check back soon for new products!</p>
+                <p class="text-gray-500">Hamarosan új termékekkel bővülünk!</p>
+            </div>
+
+            <!-- Pagination -->
+            <div
+                v-if="products.data.length > 0 && products.last_page > 1"
+                class="mt-12 flex items-center justify-center"
+            >
+                <nav class="flex items-center gap-2">
+                    <Link
+                        v-for="(link, index) in products.links"
+                        :key="index"
+                        :href="link.url || '#'"
+                        :class="[
+                            'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
+                            link.active
+                                ? 'bg-blue-600 text-white'
+                                : link.url
+                                  ? 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50'
+                                  : 'cursor-not-allowed bg-gray-100 text-gray-400',
+                        ]"
+                        :preserve-scroll="true"
+                    >
+                        <span v-html="link.label"></span>
+                    </Link>
+                </nav>
             </div>
         </div>
     </section>
