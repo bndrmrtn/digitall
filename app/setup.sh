@@ -1,5 +1,6 @@
 # App key
 php artisan key:generate
+php artisan migrate
 
 # Twill
 php artisan twill:build

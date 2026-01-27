@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import AppFooter from '@/Components/AppFooter.vue';
-import AppNavbar from '@/Components/AppNavbar.vue';
+import AppLayout from '@/Components/AppLayout.vue';
 import HeroSection from '@/Components/HeroSection.vue';
 import ProductsGrid from '@/Components/ProductsGrid.vue';
 import { Head, Link } from '@inertiajs/vue3';
@@ -22,11 +21,9 @@ defineProps<Props>();
 </script>
 
 <template>
-    <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-        <Head title="Home - DigitAll" />
+    <Head title="Főoldal" />
 
-        <AppNavbar />
-
+    <AppLayout>
         <main>
             <HeroSection />
             <ProductsGrid :products="products" />
@@ -39,7 +36,5 @@ defineProps<Props>();
                 </Link>
             </div>
         </main>
-
-        <AppFooter />
-    </div>
+    </AppLayout>
 </template>

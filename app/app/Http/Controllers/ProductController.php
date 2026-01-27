@@ -21,7 +21,7 @@ class ProductController extends Controller
                 ];
             });
 
-        return Inertia::render('Products', [
+        return Inertia::render('Products/Pagination', [
             'pagination' => $products,
         ]);
     }
@@ -29,7 +29,7 @@ class ProductController extends Controller
     public function show(string $slug, ProductRepository $productRepository): Response {
         $product = $productRepository->published()->forSlug($slug)->firstOrFail();
 
-        return Inertia::render('Product', [
+        return Inertia::render('Products/Single', [
             'product' => [
                 'id' => $product->id,
                 'title' => $product->title,

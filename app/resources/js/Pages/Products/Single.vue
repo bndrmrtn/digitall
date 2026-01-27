@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import AppFooter from '@/Components/AppFooter.vue';
-import AppNavbar from '@/Components/AppNavbar.vue';
+import AppLayout from '@/Components/AppLayout.vue';
 import SingleProductView, {
     type SingleProduct,
 } from '@/Components/SingleProductView.vue';
@@ -14,15 +13,11 @@ defineProps<Props>();
 </script>
 
 <template>
-    <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-        <Head :title="product.title + ' - DigitAll'" />
+    <Head :title="product.title" />
 
-        <AppNavbar />
-
+    <AppLayout>
         <main>
             <SingleProductView :product="product" />
         </main>
-
-        <AppFooter />
-    </div>
+    </AppLayout>
 </template>

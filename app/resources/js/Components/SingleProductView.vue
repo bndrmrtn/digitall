@@ -70,7 +70,7 @@ const formatPrice = (price: number) => {
                             v-if="product.images.length > 0"
                             :src="product.images[selectedImage]"
                             :alt="product.title"
-                            class="h-[500px] w-auto mx-auto"
+                            class="mx-auto h-[500px] w-auto"
                         />
                         <div
                             v-else
