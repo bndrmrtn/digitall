@@ -21,6 +21,13 @@ and sets the required permissions for them:
 make all # this will run data and perm both
 ```
 
+## Permission errors
+
+If any permission error happens, run this make command:
+```bash
+make perm # this will solve docker directory permission errors
+```
+
 ## Containers
 
 To start our application we should run the docker compose
@@ -41,22 +48,19 @@ Run the bash shell inside our app
 with `-i` interactive and `-t` TTY for experience:
 
 ```bash
-docker exec -it digitall-app bash
-```
-
-Inside our app, run the following command:
-
-```bash
-root@06f600bd73cb:/var/www/html# bash setup.sh
+docker exec -it digitall-app bash setup.sh
 ```
 
 Twill may have a small dialog that waits for user inputs.
 
 # Ports
 
-| Name                | Service | Port | Description                                                       |
-|---------------------|---------|------|-------------------------------------------------------------------|
-| php-fpm             | app     | 9000 | The main application that executes php scripts.                   |
-| Website (via NGINX) | nginx   | 8000 | The NGINX router that handles traffic and sends them to `php-fpm` |
-| MySQL               | db      | 3306 | MySQL Database                                                    |
-| Adminer             | adminer | 8081 | MySQL Admin Dashboard                                             |
+| Name                | Service    | Port | Description                                                          |
+|---------------------|------------|------|----------------------------------------------------------------------|
+| php-fpm             | app        | 9000 | The main application that executes php scripts.                      |
+| Website (via NGINX) | nginx      | 8000 | The NGINX router that handles traffic and sends them to `php-fpm`    |
+| MySQL               | db         | 3306 | MySQL Database                                                       |
+| Adminer             | adminer    | 8081 | MySQL Admin Dashboard                                                |
+| Grafana             | grafana    | 8003 | Dashboard and visualization for metrics, logs, and application stats |
+| Prometheus          | prometheus | 8004 | Time‑series database and monitoring system for application metrics   |
+| cAdvisor            | cadvisor   | 8005 | Container‑level resource usage and performance metrics               |
