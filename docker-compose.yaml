@@ -7,7 +7,8 @@ services:
       - app_data:/var/www/html:rw,z
       - ./docker/data/app:/var/www/html/storage/app
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     networks:
       - laravel
 
@@ -32,6 +33,11 @@ services:
       MYSQL_USER: laravel
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: rootsecret
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost -prootsecret || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
       - ./docker/data/db:/var/lib/mysql
     networks:
@@ -59,7 +65,7 @@ services:
       - TZ=Europe/Budapest
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/containers-overview.json
     volumes:
-      - ./docker/grafana:/var/lib/grafana
+      - ./docker/data/grafana:/var/lib/grafana
       - ./metrics/grafana/provisioning:/etc/grafana/provisioning:ro
       - ./metrics/grafana/dashboards:/var/lib/grafana/dashboards:ro
     ports:
@@ -74,7 +80,7 @@ services:
       - "8004:9090"
     volumes:
       - ./metrics/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      - ./docker/prometheus:/prometheus
+      - ./docker/data/prometheus:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"

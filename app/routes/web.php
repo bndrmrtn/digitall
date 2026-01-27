@@ -24,14 +24,11 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::put('/cart/{productId}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/{productId}', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 Route::get('/checkout', [CartController::class, 'index'])->name('checkout.index');
 
 Route::get('/about', function () {
-    return Inertia::render('About');
+    return Inertia::render('About', []);
 })->name('about');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

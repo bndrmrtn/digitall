@@ -11,6 +11,13 @@ A simple webshop application for school project.
 - Docker ([Install](https://docs.docker.com/engine/install))
 - Make (`sudo apt install make`)
 
+## Lazy-setup
+
+This is a lazy one command setup for people who just want things working.
+```bash
+make lazy
+```
+
 ## Folders and permissions
 
 Before we start our project, we must run the below command
@@ -18,7 +25,8 @@ that creates the data folders for each container
 and sets the required permissions for them:
 
 ```bash
-make all # this will run data and perm both
+make data # this will run data and perm both
+make perm
 ```
 
 ## Permission errors

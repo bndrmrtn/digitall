@@ -1,15 +1,13 @@
-all: data perm
-
 data:
 	@mkdir -p docker/data/app
 	@mkdir -p docker/data/db
 	@mkdir -p docker/data/grafana
 	@mkdir -p docker/data/prometheus
 
-perm:
+perm: data
 	@sudo chmod -R 777 ./docker/data/app
-	@sudo chmod -R 777 ./docker/grafana
-	@sudo chmod -R 777 ./docker/prometheus
+	@sudo chmod -R 777 ./docker/data/grafana
+	@sudo chmod -R 777 ./docker/data/prometheus
 
 rebuild:
 	@docker compose down -v
@@ -17,3 +15,14 @@ rebuild:
 
 appscript:
 	@docker exec -it digitall-app bash setup.sh
+
+# lazy developers script
+lazy: perm
+	@docker compose up --build -d
+	@docker exec -it digitall-app bash setup.sh
+	@docker compose ps
+	@echo "Complete!"
+	@echo "URLs:"
+	@echo " - Website: http://localhost:8000"
+	@echo " - Adminer: http://localhost:8081"
+	@echo " - Grafana: http://localhost:8003"
