@@ -12,6 +12,7 @@ class ProductController extends Controller
     public function index(): Response
     {
         $products = Product::published()
+            ->orderByDesc('updated_at')
             ->paginate(6)
             ->through(function ($product) {
                 return [

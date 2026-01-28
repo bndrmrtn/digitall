@@ -22,6 +22,6 @@ class TwillAdminMenuProvider extends ServiceProvider
     public function boot(): void
     {
         TwillNavigation::addLink(NavigationLink::make()->forModule('products')->title("Products"));
-        TwillNavigation::addLink(NavigationLink::make()->forModule('contacts')->title("Contacts"));
+        TwillNavigation::addLink(NavigationLink::make()->forRoute('twill.admin.contacts.index')->title("Contacts"));
     }
 }

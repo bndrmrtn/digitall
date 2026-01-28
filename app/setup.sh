@@ -3,8 +3,8 @@ php artisan key:generate
 php artisan migrate
 
 # Twill
-php artisan twill:build
-php artisan twill:install
+php artisan twill:build --no-interaction
+php artisan twill:install --no-interaction
 
 # Optimize
 php artisan cache:clear

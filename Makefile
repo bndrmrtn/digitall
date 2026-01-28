@@ -26,3 +26,6 @@ lazy: perm
 	@echo " - Website: http://localhost:8000"
 	@echo " - Adminer: http://localhost:8081"
 	@echo " - Grafana: http://localhost:8003"
+
+admin:
+	@docker exec -it digitall-app php artisan twill:superadmin

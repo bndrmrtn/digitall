@@ -65,17 +65,16 @@ const formatPrice = (price: number) => {
                 <!-- Image Gallery -->
                 <div class="space-y-4">
                     <!-- Main Image -->
-                    <div class="overflow-hidden rounded-2xl bg-gray-100">
+                    <div
+                        class="flex h-[500px] items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+                    >
                         <img
                             v-if="product.images.length > 0"
                             :src="product.images[selectedImage]"
                             :alt="product.title"
-                            class="mx-auto h-[500px] w-auto"
+                            class="h-auto max-h-full w-auto max-w-full object-contain"
                         />
-                        <div
-                            v-else
-                            class="flex h-[500px] w-full items-center justify-center"
-                        >
+                        <div v-else class="flex items-center justify-center">
                             <svg
                                 class="h-32 w-32 text-gray-300"
                                 fill="none"

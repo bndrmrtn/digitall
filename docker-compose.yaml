@@ -10,7 +10,7 @@ services:
       db:
         condition: service_healthy
     networks:
-      - laravel
+      - digitall
 
   nginx:
     image: nginx:1.27-alpine
@@ -23,7 +23,7 @@ services:
     depends_on:
       - app
     networks:
-      - laravel
+      - digitall
 
   db:
     image: mysql:8.4
@@ -41,7 +41,7 @@ services:
     volumes:
       - ./docker/data/db:/var/lib/mysql
     networks:
-      - laravel
+      - digitall
 
   adminer:
     image: adminer:latest
@@ -54,7 +54,7 @@ services:
     depends_on:
       - db
     networks:
-      - laravel
+      - digitall
 
   # Grafana (dashboards)
   grafana:
@@ -70,6 +70,8 @@ services:
       - ./metrics/grafana/dashboards:/var/lib/grafana/dashboards:ro
     ports:
       - "8003:3000"
+    networks:
+      - digitall
 
   # Prometheus (metrics storage + scraping)
   prometheus:
@@ -86,6 +88,8 @@ services:
       - "--storage.tsdb.path=/prometheus"
     depends_on:
       - cadvisor
+    networks:
+      - digitall
 
   # cAdvisor (container-level resource metrics)
   cadvisor:
@@ -100,10 +104,12 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker:/var/lib/docker:ro
     privileged: true
+    networks:
+      - digitall
 
 volumes:
   app_data:
 
 networks:
-  laravel:
+  digitall:
     driver: bridge

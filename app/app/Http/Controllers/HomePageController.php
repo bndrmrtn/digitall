@@ -9,7 +9,9 @@ use Inertia\Response;
 class HomePageController extends Controller
 {
     public function index(): Response {
-        $products = Product::published()->take(6)->get()->map(function ($product) {
+        $products = Product::published()
+            ->orderByDesc('updated_at')
+            ->take(6)->get()->map(function ($product) {
             return [
                 ...$product->toArray(),
                 'slug' => $product->slug,

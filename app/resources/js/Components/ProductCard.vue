@@ -21,19 +21,17 @@ const imageUrl = computed(() => {
         >
             <!-- Image Container with Fixed Aspect Ratio -->
             <div
-                class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
+                class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200"
             >
                 <img
                     :src="imageUrl"
                     :alt="product.title"
-                    class="mx-auto h-full w-auto transition-all duration-700 group-hover:scale-110"
+                    class="h-auto max-h-full w-auto max-w-full object-contain transition-all duration-700 group-hover:scale-110"
                 />
-
                 <!-- Subtle Overlay -->
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
-
                 <!-- Floating Label -->
                 <div
                     class="absolute bottom-4 right-4 translate-y-2 transform bg-white/95 px-4 py-2 text-sm font-bold uppercase tracking-wider text-gray-900 opacity-0 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
