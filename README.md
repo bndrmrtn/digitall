@@ -11,6 +11,14 @@ A simple webshop application for school project.
 - Docker ([Install](https://docs.docker.com/engine/install))
 - Make (`sudo apt install make`)
 
+## Must create **SSL** certifications before setting up
+
+```
+make cert
+```
+
+And then follow the **SSL** certification instructions.
+
 ## Lazy-setup
 
 This is a lazy one command setup for people who just want things working.
