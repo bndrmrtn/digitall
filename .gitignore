@@ -3,4 +3,4 @@ docker/*
 .idea
 
 docker/nginx/ssl/*
-!docker/nginx/ssl
+!docker/nginx/ssl/.gitkeep
